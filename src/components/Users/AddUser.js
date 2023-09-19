@@ -6,6 +6,7 @@ import classes from "./AddUser.module.css";
 const AddUser = (props) => {
   const [enteredUserName, setEnteredUserName] = useState("");
   const [enteredUserAge, setEnteredUserAge] = useState("");
+
   const addUserHandler = (event) => {
     event.preventDefault();
     if (
@@ -14,12 +15,14 @@ const AddUser = (props) => {
     ) {
       return;
     }
+    if (+enteredUserAge < 1) {
+      return;
+    }
+    props.onAddUser(enteredUserName, enteredUserAge);
     setEnteredUserName(""); // resetting
     setEnteredUserAge(""); // resetting
   };
-  if (+enteredUserAge < 1) {
-    return;
-  }
+
   const usernameChangeHandler = (event) => {
     setEnteredUserName(event.target.value);
   };
