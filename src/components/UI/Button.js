@@ -5,8 +5,8 @@ const Button = (props) => {
   return (
     <button
       className={classes.button}
-      types={props.type || "button"}
-      onclick={props.onclick}
+      type={props.type || 'button'}
+      onClick={props.onClick}
     >
       {props.children}
     </button>
@@ -15,4 +15,4 @@ const Button = (props) => {
 
 export default Button;
 
-//in props.onclick, onclick can be any name
+//in props.onClick, onclick can be any name
